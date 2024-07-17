@@ -1,6 +1,5 @@
 use std::ops::Index;
 
-// S-box table (example values, you can replace with your own)
 const S_BOX: [u8; 16] = [
     0b1110, 0b0100, 0b1101, 0b0001,
     0b0010, 0b1111, 0b1011, 0b1000,
@@ -34,14 +33,12 @@ fn p_block(input: u8) -> u8 {
 }
 
 fn p_block_inverse(input: u8) -> u8 {
-    // The inverse of the P-block is the same operation, as it is symmetric
     p_block(input)
 }
 
 fn main() {
     let input: u8 = 0b11001100;
     let s_output = s_block(input);
-    //println!("S-block output: {:08b}", s_output);
     let s_inverse_output = s_block_inverse(s_output);
     println!("S-block output: {:08b}, S-block inverse output: {:08b}", s_output, s_inverse_output);
 
